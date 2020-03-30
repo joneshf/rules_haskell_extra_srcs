@@ -12,13 +12,10 @@ load(
 haskell_library(
     deps = [
         ":base",
-        "@stackage//:file-embed",
-    ],
-    extra_srcs = [
-        "README.md",
     ],
     name = "foo",
     srcs = [
+        "Bar.hs",
         "Foo.hs",
     ]
 )
@@ -29,8 +26,10 @@ haskell_toolchain_library(
 
 write_file(
     content = [
-        "# rules_haskell_extra_srcs",
+        "module Bar where",
+        "bar :: String",
+        "bar = \"bar\"",
     ],
-    name = "readme",
-    out = "README.md",
+    name = "bar",
+    out = "Bar.hs",
 )

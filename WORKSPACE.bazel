@@ -47,16 +47,3 @@ load(
 rules_haskell_toolchains(
     version = "8.6.5",
 )
-
-load(
-    "@rules_haskell//haskell:cabal.bzl",
-    "stack_snapshot",
-)
-
-stack_snapshot(
-    name = "stackage",
-    packages = [
-        "file-embed",
-    ],
-    snapshot = "lts-13.26",
-)

@@ -1,8 +1,7 @@
 {-# LANGUAGE PackageImports #-}
-{-# LANGUAGE TemplateHaskell #-}
 module Foo where
 
-import qualified "file-embed" Data.FileEmbed
+import qualified "this" Bar
 
 foo :: String
-foo = $(Data.FileEmbed.embedStringFile "README.md")
+foo = Bar.bar
