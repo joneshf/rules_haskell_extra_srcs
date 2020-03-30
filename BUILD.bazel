@@ -1,0 +1,36 @@
+load(
+    "@bazel_skylib//rules:write_file.bzl",
+    "write_file",
+)
+
+load(
+    "@rules_haskell//haskell:defs.bzl",
+    "haskell_library",
+    "haskell_toolchain_library",
+)
+
+haskell_library(
+    deps = [
+        ":base",
+        "@stackage//:file-embed",
+    ],
+    extra_srcs = [
+        "README.md",
+    ],
+    name = "foo",
+    srcs = [
+        "Foo.hs",
+    ]
+)
+
+haskell_toolchain_library(
+    name = "base",
+)
+
+write_file(
+    content = [
+        "# rules_haskell_extra_srcs",
+    ],
+    name = "readme",
+    out = "README.md",
+)
